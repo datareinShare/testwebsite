@@ -8,51 +8,6 @@
 <body>
     <h1>テストサイトです</h1>
 
-    <!-- 修正版iframe（完全にフィット） -->
-    <iframe 
-        id="chatbot-iframe"
-        src="https://web-production-011be.up.railway.app/chatbot/embed/"
-        style="
-            position: fixed; 
-            bottom: 20px; 
-            right: 20px; 
-            width: 80px; 
-            height: 80px; 
-            border: none; 
-            z-index: 9999; 
-            border-radius: 50%; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        ">
-    </iframe>
-
-    <script>
-        // iframe内からのメッセージを受信
-        window.addEventListener('message', function(event) {
-            // セキュリティのためオリジンをチェック
-            if (event.origin !== 'https://web-production-011be.up.railway.app') return;
-            
-            const iframe = document.getElementById('chatbot-iframe');
-            
-            if (event.data.type === 'toggleChatbot') {
-                if (event.data.expanded) {
-                    // チャット展開 - 右下に固定
-                    iframe.style.width = '400px';
-                    iframe.style.height = '600px';
-                    iframe.style.borderRadius = '12px';
-                    iframe.style.bottom = '20px';
-                    iframe.style.right = '20px';
-                } else {
-                    // チャット縮小 - 円形アイコンに戻る
-                    iframe.style.width = '80px';
-                    iframe.style.height = '80px';
-                    iframe.style.borderRadius = '50%';
-                    iframe.style.bottom = '20px';
-                    iframe.style.right = '20px';
-                }
-            }
-        });
-    </script>
+    <script src="https://web-production-011be.up.railway.app/chatbot/widget.js?title=DATAREINチャットボット&color=%23ff6b6b&position=bottom-right&welcome=質問を入力してください"></script>
 </body>
 </html>
